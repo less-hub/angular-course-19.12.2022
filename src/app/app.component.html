@@ -1,5 +1,8 @@
 <div class="container">
   <div class="col">
+    <app-todo-form></app-todo-form>
+  </div>
+  <div class="col">
     <todo-item *ngFor="let todo of plannedTodos" [todo]="todo"></todo-item>
   </div>
   <div class="col">

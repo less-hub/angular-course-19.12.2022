@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 export enum TodoStatusEnum {
     PLANNED,
@@ -17,6 +17,10 @@ export interface TodoInterface {
     templateUrl: 'todo.component.html',
     styleUrls: ['todo.component.scss']
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
     @Input() public todo!: TodoInterface;
+
+    public ngOnInit(): void {
+        console.log("Created this ToDo: ", this.todo);
+    }
 }

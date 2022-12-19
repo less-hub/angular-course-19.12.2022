@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppTodoService } from './app-todo.service';
 import { TodoInterface, TodoStatusEnum } from './todo-component/todo.component';
 
 @Component({
@@ -12,46 +13,12 @@ export class AppComponent implements OnInit {
   public doneTodos: TodoInterface[] = [];
 
   public ngOnInit(): void {
-      this.plannedTodos = this.todos.filter(t => t.status === TodoStatusEnum.PLANNED);
-      this.doingTodos = this.todos.filter(t => t.status === TodoStatusEnum.DOING);
-      this.doneTodos = this.todos.filter(t => t.status === TodoStatusEnum.DONE);
+      this.plannedTodos = this.appTodoService.getTodos().filter(t => t.status === TodoStatusEnum.PLANNED);
+      this.doingTodos = this.appTodoService.getTodos().filter(t => t.status === TodoStatusEnum.DOING);
+      this.doneTodos = this.appTodoService.getTodos().filter(t => t.status === TodoStatusEnum.DONE);
   }
 
-  public todos: TodoInterface[] = [
-    {
-      title: '[Angular]',
-      body: '',
-      status: TodoStatusEnum.PLANNED
-    },
-    {
-      title: 'Todo-Title 2',
-      body: 'Todo-Body',
-      status: TodoStatusEnum.DOING
-    },
-    {
-      title: 'Todo-Title 3',
-      body: 'Todo-Body',
-      status: TodoStatusEnum.DONE
-    },
-    {
-      title: 'Todo-Title 4',
-      body: 'Todo-Body',
-      status: TodoStatusEnum.DONE
-    },
-    {
-      title: 'Todo-Title 4',
-      body: 'Todo-Body',
-      status: TodoStatusEnum.DOING
-    },
-    {
-      title: 'Todo-Title 4',
-      body: 'Todo-Body',
-      status: TodoStatusEnum.DOING
-    },
-    {
-      title: 'Todo-Title 4',
-      body: 'Todo-Body',
-      status: TodoStatusEnum.PLANNED
-    },
-  ];
+  constructor (
+    private appTodoService: AppTodoService
+  ) {}
 }
