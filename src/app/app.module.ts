@@ -10,6 +10,7 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostsDetailComponent } from './posts-detail/posts-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     TodoComponent,
     TodoFormComponent,
     HomeComponent,
-    PostsComponent
+    PostsComponent,
+    PostsDetailComponent
   ],
   imports: [
     BrowserModule,

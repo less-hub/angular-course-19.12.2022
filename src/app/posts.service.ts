@@ -10,7 +10,7 @@ export interface PostInterface {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostsService {
   private readonly url: string = 'https://jsonplaceholder.typicode.com/posts';
@@ -19,7 +19,9 @@ export class PostsService {
     return this.http.get<PostInterface[]>(this.url);
   }
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  public getPost(postId: string | null): Observable<PostInterface> {
+    return this.http.get<PostInterface>(this.url + '/' + postId);
+  }
+
+  constructor(private http: HttpClient) {}
 }

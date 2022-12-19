@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { map, Subscription, tap } from 'rxjs';
 import { PostInterface, PostsService } from '../posts.service';
 
@@ -31,5 +32,9 @@ export class PostsComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  constructor(private postsService: PostsService) {}
+  public redirectTo(post: PostInterface): void {
+    this.router.navigate(['posts', post.id]);
+  }
+
+  constructor(private postsService: PostsService, private router: Router) {}
 }

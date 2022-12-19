@@ -1,4 +1,11 @@
 
 .post-container {
     margin: 30px 0;
+    border: 1px solid tomato;
+
+    cursor: pointer;
+
+    &:hover {
+        border-color: lightblue;
+    }
 }

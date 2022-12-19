@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
 import { HomeComponent } from '../home/home.component';
 import { PostsComponent } from '../posts/posts.component';
+import { PostsDetailComponent } from '../posts-detail/posts-detail.component';
 
 export const routes: Routes = [
   { path: 'add-todo', component: TodoFormComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'posts', component: PostsComponent}
+  { path: 'posts', component: PostsComponent},
+  { path: 'posts/:id', component: PostsDetailComponent}
 ];
 
 @NgModule({
