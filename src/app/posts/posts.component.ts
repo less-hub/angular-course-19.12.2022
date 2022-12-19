@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { map, Subscription, tap } from 'rxjs';
 import { PostInterface, PostsService } from '../posts.service';
 
 @Component({
@@ -13,14 +13,22 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.subscriptions.add(
-      this.postsService.getPosts().subscribe((response) => {
-        this.posts = response;
-      })
+      this.postsService
+        .getPosts()
+        .pipe(
+          tap((response) => {
+            console.log(response);
+          }),
+          map((response) => response.slice(1, response.length - 1))
+        )
+        .subscribe((response) => {
+          this.posts = response;
+        })
     );
   }
 
   public ngOnDestroy(): void {
-      this.subscriptions.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 
   constructor(private postsService: PostsService) {}
