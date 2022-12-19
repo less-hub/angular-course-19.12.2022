@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TodoInterface, TodoStatusEnum } from './todo-component/todo.component';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AppTodoService {
   public todos: TodoInterface[] = [
     {
@@ -45,5 +43,9 @@ export class AppTodoService {
 
   public getTodos(): TodoInterface[] {
     return this.todos;
+  }
+
+  public addTodo(todoToAdd: TodoInterface): void {
+    this.todos.push(todoToAdd);
   }
 }

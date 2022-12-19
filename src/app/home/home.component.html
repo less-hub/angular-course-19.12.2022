@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="col">
+      <a routerLink="/add-todo">Aggiungi un Todo!</a>
+    </div>
+    <div class="col">
+      <todo-item *ngFor="let todo of plannedTodos" [todo]="todo"></todo-item>
+    </div>
+    <div class="col">
+      <todo-item *ngFor="let todo of doingTodos" [todo]="todo"></todo-item>
+    </div>
+    <div class="col">
+      <todo-item *ngFor="let todo of doneTodos" [todo]="todo"></todo-item>
+    </div>
+</div>

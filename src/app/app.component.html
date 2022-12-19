@@ -1,15 +1,1 @@
-<div class="container">
-  <div class="col">
-    <app-todo-form (onSubmitForm)="onSubmit($event)"></app-todo-form>
-  </div>
-  <div class="col">
-    <todo-item *ngFor="let todo of plannedTodos" [todo]="todo"></todo-item>
-  </div>
-  <div class="col">
-    <todo-item *ngFor="let todo of doingTodos" [todo]="todo"></todo-item>
-  </div>
-  <div class="col">
-    <todo-item *ngFor="let todo of doneTodos" [todo]="todo"></todo-item>
-
-  </div>
-</div>
+<router-outlet></router-outlet>
