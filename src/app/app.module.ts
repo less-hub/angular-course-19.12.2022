@@ -8,18 +8,22 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo-component/todo.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     TodoFormComponent,
-    HomeComponent
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [AppTodoService],
   bootstrap: [AppComponent]

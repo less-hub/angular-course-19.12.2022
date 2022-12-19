@@ -1,6 +1,7 @@
 <div class="container">
     <div class="col">
       <a routerLink="/add-todo">Aggiungi un Todo!</a>
+      <a routerLink="/posts">Gestisci i posts</a>
     </div>
     <div class="col">
       <todo-item *ngFor="let todo of plannedTodos" [todo]="todo"></todo-item>
