@@ -1,0 +1,11 @@
+<div class="container" 
+    [ngClass]="{ 
+            'planned': todo.status === 0,
+            'doing': todo.status === 1,
+            'done': todo.status === 2
+        }"
+>
+    <p class="title">{{ todo.title }}</p>
+    <p class="body" *ngIf="todo.body">{{ todo.body }}</p>
+    <p class="body" *ngIf="!todo.body">Non c'è un contenuto di questo ToDo :(</p>
+</div>

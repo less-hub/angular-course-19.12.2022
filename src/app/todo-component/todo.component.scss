@@ -1,0 +1,41 @@
+.container {
+    width: 200px;
+    min-height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid tomato;
+    border-radius: 10px;
+
+    margin: 20px;
+}
+
+.title {
+    font-weight: 400;
+    color: black;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid tomato;
+}
+
+.body {
+    color: black;
+    text-transform: lowercase;
+    padding: 10px;
+    text-align: center;
+}
+
+.planned {
+    background-color: lightcoral;
+}
+
+.doing {
+    background-color: lightblue;
+}
+
+.done {
+    background-color: lightgreen;
+}
