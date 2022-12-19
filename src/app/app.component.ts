@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
       this.doneTodos = this.appTodoService.getTodos().filter(t => t.status === TodoStatusEnum.DONE);
   }
 
+  public onSubmit(value: TodoInterface): void {
+    console.log("Todo: ", value);
+  }
+
   constructor (
     private appTodoService: AppTodoService
   ) {}

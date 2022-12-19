@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { TodoInterface, TodoStatusEnum } from '../todo-component/todo.component';
 
 @Component({
   selector: 'app-todo-form',
@@ -7,6 +8,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./todo-form.component.scss']
 })
 export class TodoFormComponent {
+  @Output() public onSubmitForm: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
 
   public todoForm: FormGroup = this.formBuilder.group({
     title: new FormControl(''),
@@ -14,10 +16,13 @@ export class TodoFormComponent {
   });
 
   public onSubmit(): void {
-    // this.todoForm.get('title')?.value;
-    // this.todoForm.get('body')?.value;
-    console.log("title: ", this.todoForm.get('title')?.value);
-    console.log("body: ", this.todoForm.get('body')?.value);
+    this.onSubmitForm.emit(
+      {
+        title: this.todoForm.get('title')?.value,
+        body: this.todoForm.get('body')?.value,
+        status: TodoStatusEnum.PLANNED
+      }
+    );
   }
 
   constructor(
